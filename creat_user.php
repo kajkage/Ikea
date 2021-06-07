@@ -17,7 +17,7 @@ if(isset($_POST['creat_user'])) {
   $sql= "SELECT * from users where email = '$email'";
   $result = mysqli_query($con, $sql);
   if (mysqli_num_rows($result) > 0) {
-    echo "Email finde allerede";
+    echo "Email findes allerede";
   } else {
     $sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
     VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
