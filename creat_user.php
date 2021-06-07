@@ -24,23 +24,20 @@ $result = mysqli_query($con, $sql);
     <title>Ny bruger</title>
   </head>
   <body>
-<input type="text" name="fornavn" placeholder="Fornavn" required>
+<input type="text" name="first_name" placeholder="Fornavn" required>
 <br>
-<input type="text" name="efternavn" placeholder="Efternavn" required>
+<input type="text" name="last_name" placeholder="Efternavn" required>
 <br>
 <input type="email" name="email" placeholder="Email" required>
 <br>
-<input type="text" name="nummer" placeholder="Nummer" required>
+<input type="text" name="phone_number" placeholder="Nummer" required>
 <br>
-<input type="text" name="adresse" placeholder="Adresse" required>
+<input type="text" name="adress" placeholder="Adresse" required>
 <br>
-<input type="text" name="postnummer" placeholder="Postnummer" required>
+<input type="text" name="phone_number" placeholder="Postnummer" required>
 <br>
-<input type="password" name="postnummer" placeholder="Adgangskode" required>
-<br>
-<input type="password" name="postnummer" placeholder="Adgangskode" required>
-<br>
-<input type="password" name="repeatpassword" placeholder="Bekræft adgangskode" required>
+<input type="password" name="password" placeholder="Adgangskode" required>
+
 
   </body>
 </html>
