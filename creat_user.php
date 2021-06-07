@@ -27,10 +27,6 @@ if(isset($_POST['creat_user'])) {
     }
   }
 
-
-
-
-
 }
 ?>
 <!DOCTYPE html>
