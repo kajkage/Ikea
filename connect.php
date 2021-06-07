@@ -6,8 +6,4 @@ define ("DBNAME","ikea");
 
 connect ();
 
-
-
-
-
  ?>
