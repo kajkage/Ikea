@@ -1,16 +1,16 @@
 <?php
-$conn = null;
+$con = null;
 
 function connect() {
 
-  global $conn;
+  global $con;
 
-  $conn = mysqli_connect(DBHOST, DBUSER, DBPASS);
+  $con = mysqli_connect(DBHOST, DBUSER, DBPASS);
 
-  if(!$conn){
-    die(mysqli_error($conn));
+  if(!$con){
+    die(mysqli_error($con));
 }
-mysqli_select_db($conn, DBNAME);
+mysqli_select_db($con, DBNAME);
 }
-include("connect.php")
+
 ?>
