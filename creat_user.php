@@ -17,7 +17,7 @@ $password = $_POST['password'];
 $sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
 VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
 $result = mysqli_query($con, $sql);
-}
+
 
 $sql= "SELECT * from users where (email='$email');";
 $result = mysqli_query($con, $sql);
@@ -26,6 +26,7 @@ if (mysqli_num_rows($result) > 0) {
     if($email==isset($row['email']))
     {
       echo "Email er i brug";
+}
 }
 }
 ?>
