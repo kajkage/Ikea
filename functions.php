@@ -12,4 +12,20 @@ function connect() {
 }
 mysqli_select_db($con, DBNAME);
 }
-?>
+
+function users(){
+
+global $con;
+
+$sql = "SELECT * from users where user_id > 0";
+
+$result = mysqli_query($con, $sql);
+
+$users = [];
+if(mysqli_num_rows($result) > 0){
+  while($row = mysqli_fetch_assoc($result)){
+    $users[] = $row;
+  }
+  }
+return $users;
+}

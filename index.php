@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,27 +10,24 @@
   </head>
   <body>
 <div class="container">
-  <form action="">
+  <form method="post">
     <h1>Log ind</h1>
     <div class="login">
-      <label for="">Email</label>
-      <input type="email" name="email" class="login_email" required>
-    </div>
-    <div class="login">
-      <label for="">Password</label>
-      <input type="password" name="password" class="login_password" required>
+      <label for="email">E-mail</label>
+      <input type="email" name="email" placeholder="Indtast email her" class="login_email" required>
+      <label for="password">Adgangkode</label>
+      <input type="password" name="password" placeholder="Tast kode her" class="login_password" required>
     </div>
 
-   <button type="submit" name="login">
+   <button type="submit" name="login" value="login">Log ind</button> <br>
    <a href="creat_user.php" class="btn">Opret Bruger</a>
+ </form>
 </div>
-
-</body>
-</html>
 
 <?php
 include('connect.php');
-if(isset($_POST['login']))
+
+if(isset($_POST['login'])) {
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -42,14 +43,17 @@ if(mysqli_num_rows($result) > 0) {
 }
 
 for ($x = 0; $x < count($users); $x++){
-  if($users[$x]['email'] == $email && $users[$x]['password'] == $pass){
-  header("cats.php");
+  if($users[$x]['email'] == $email && $users[$x]['password'] == $password){
+  header("Location: ./creat_user.php");
 
   break;
   }
   else {
-    $msg = "Adgangskode eller e-mail er forkert, prøv igen";
+    echo "Adgangskode eller e-mail er forkert, prøv igen";
   }
 }
-?> <p id="message"> <?php  echo $msg ?></p><?php
- ?>
+} ?>
+
+
+</body>
+</html>
