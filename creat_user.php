@@ -19,6 +19,15 @@ VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$em
 $result = mysqli_query($con, $sql);
 }
 
+$sql= "SELECT * from users where (email='$email');";
+$result = mysqli_query($con, $sql);
+if (mysqli_num_rows($result) > 0) {
+  $row = mysqli_fetch_assoc($result);
+    if($email==isset($row['email']))
+    {
+      echo "Email er i brug";
+}
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
