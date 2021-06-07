@@ -1,6 +1,5 @@
 <?php
-include("connect.php");
-connect();
+
 
 $sql= "SELECT category_id, cat_name FROM categories";
 $result = mysqli_query($con, $sql);

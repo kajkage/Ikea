@@ -1,7 +1,4 @@
 <?php
-include("connect.php");
-
-connect();
 
 $users = users();
 
@@ -25,6 +22,7 @@ if(isset($_POST['creat_user'])) {
     //if (mysqli_num_rows($result) > 0) {
       //echo "Bruger er oprettet";
     //}
+    header('Location: ./index.php');
   }
 
 }

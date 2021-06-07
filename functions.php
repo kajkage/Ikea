@@ -1,4 +1,5 @@
 <?php
+
 $con = null;
 
 function connect() {
@@ -13,7 +14,7 @@ function connect() {
 mysqli_select_db($con, DBNAME);
 }
 
-function users(){
+function users() {
 
 global $con;
 
@@ -28,6 +29,22 @@ if(mysqli_num_rows($result) > 0){
   }
   }
 return $users;
+}
+
+function getPage($pid = null) {
+  global $con;
+
+  if($pid != null) {
+    $sql = 'SELECT * FROM pages where page_id = "' . $pid . '"';
+} else {
+    $sql = 'SELECT * FROM pages WHERE frontpage = 1';
+  }
+  $page = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($page) > 0) {
+    return mysqli_fetch_assoc($page);
+  }
+  return false;
 }
 
 function debug($data) {
