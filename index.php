@@ -31,10 +31,10 @@ if(mysqli_num_rows($result) > 0) {
     $users[] = $row;
   }
 }
-
+debug($row);
 for ($x = 0; $x < count($users); $x++){
   if($users[$x]['email'] == $email && $users[$x]['password'] == $password){
-  $_SESSION['useremail'] = $password;
+  $_SESSION['user_first_name'] = $email;
   header("Location: ./testpage.php");
 
   break;

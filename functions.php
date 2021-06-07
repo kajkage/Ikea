@@ -29,3 +29,9 @@ if(mysqli_num_rows($result) > 0){
   }
 return $users;
 }
+
+function debug($data) {
+  echo '<pre>';
+  print_r($data);
+  echo '</pre>';
+}
