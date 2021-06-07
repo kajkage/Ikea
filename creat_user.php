@@ -6,28 +6,31 @@ connect();
 $users = users();
 
 if(isset($_POST['creat_user'])) {
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$adress = $_POST['adress'];
-$postal = $_POST['postal'];
-$phone_number = $_POST['phone_number'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+  $first_name = $_POST['first_name'];
+  $last_name = $_POST['last_name'];
+  $adress = $_POST['adress'];
+  $postal = $_POST['postal'];
+  $phone_number = $_POST['phone_number'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
-$sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
-VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
-$result = mysqli_query($con, $sql);
+  $sql= "SELECT * from users where email = '$email'";
+  $result = mysqli_query($con, $sql);
+  if (mysqli_num_rows($result) > 0) {
+    echo "Email finde allerede";
+  } else {
+    $sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
+    VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result) > 0) {
+      echo "Bruger er oprettet";
+    }
+  }
 
 
-$sql= "SELECT * from users where (email='$email');";
-$result = mysqli_query($con, $sql);
-if (mysqli_num_rows($result) > 0) {
-  $row = mysqli_fetch_assoc($result);
-    if($email==isset($row['email']))
-    {
-      echo "Email er i brug";
-}
-}
+
+
+
 }
 ?>
 <!DOCTYPE html>
