@@ -1,14 +1,4 @@
-<?php
-session_start();
-
- ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Log ind eller opret bruger</title>
-  </head>
-  <body>
+<?php include('./header.php') ?>
 <div class="container">
   <form method="post">
     <h1>Log ind</h1>
@@ -44,7 +34,8 @@ if(mysqli_num_rows($result) > 0) {
 
 for ($x = 0; $x < count($users); $x++){
   if($users[$x]['email'] == $email && $users[$x]['password'] == $password){
-  header("Location: ./creat_user.php");
+  $_SESSION['useremail'] = $password;
+  header("Location: ./testpage.php");
 
   break;
   }
@@ -52,7 +43,8 @@ for ($x = 0; $x < count($users); $x++){
     echo "Adgangskode eller e-mail er forkert, prøv igen";
   }
 }
-} ?>
+}
+?>
 
 
 </body>
