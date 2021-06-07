@@ -5,7 +5,6 @@ define ("DBPASS", "root");
 define ("DBNAME","ikea");
 
 
-include("functions.php");
 connect ();
 
  ?>
