@@ -1,7 +1,8 @@
 <?php
-include("functions.php");
+include("connect.php");
 
 connect();
+if(isset($_POST['create'])) {
 $first_name = $_POST['first_name'];
 $last_name = $_POST['last_name'];
 $adress = $_POST['adress'];
@@ -13,7 +14,7 @@ $password = $_POST['password'];
 $sgl = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
 VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
 $result = mysqli_query($con, $sql);
-
+}
 
 ?>
 <!DOCTYPE html>
@@ -24,6 +25,7 @@ $result = mysqli_query($con, $sql);
     <title>Ny bruger</title>
   </head>
   <body>
+<form method="post">
 <input type="text" name="first_name" placeholder="Fornavn" required>
 <br>
 <input type="text" name="last_name" placeholder="Efternavn" required>
@@ -36,8 +38,11 @@ $result = mysqli_query($con, $sql);
 <br>
 <input type="text" name="phone_number" placeholder="Postnummer" required>
 <br>
-<input type="password" name="password" placeholder="Adgangskode" required>
+<input type="password" name="postnummer" placeholder="Adgangskode" required>
+<button name="creat_user" type="sumbit" value="create"> opret bruger </button>
 
+
+</form>
 
   </body>
 </html>

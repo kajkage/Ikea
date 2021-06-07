@@ -12,5 +12,4 @@ function connect() {
 }
 mysqli_select_db($con, DBNAME);
 }
-
 ?>
