@@ -11,10 +11,23 @@ connect();
     <title>Ny bruger</title>
   </head>
   <body>
-    <label for="">Fornavn</label>
-<input type="text" name="email" class="fornavn" required>
+<input type="text" name="fornavn" placeholder="fornavn" required>
 <br>
-    <label for="">
-<input type="text" name="efternavn" class="efternavn" required>
+<input type="text" name="efternavn" placeholder="efternavn" required>
+<br>
+<input type="email" name="email" placeholder="email" required>
+<br>
+<input type="text" name="nummer" placeholder="nummer" required>
+<br>
+<input type="text" name="adresse" placeholder="adresse" required>
+<br>
+<input type="text" name="postnummer" placeholder="postnummer" required>
+<br>
+<input type="password" name="postnummer" placeholder="adgangskode" required>
+<br>
+<input type="password" name="postnummer" placeholder="adgangskode" required>
+<br>
+<input type="password" name="repeatpassword" placeholder="bekræft adgangskode" required>
+
   </body>
 </html>
