@@ -2,6 +2,19 @@
 include("functions.php");
 
 connect();
+$first_name = $_POST['first_name'];
+$last_name = $_POST['last_name'];
+$adress = $_POST['adress'];
+$postal = $_POST['postal'];
+$phone_number = $_POST['phone_number'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+$sgl = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
+VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
+$result = mysqli_query($con, $sql);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
