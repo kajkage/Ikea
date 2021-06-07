@@ -1,18 +1,15 @@
 <div class="container">
   <form action="">
     <h1>IKEA AUCTIONS</h1>
-    <div class="form-group">
-      <label for="">User Name</label>
-      <input type="text" class="form-control" required>
+    <div class="login">
+      <label for="">Email</label>
+      <input type="text" class="login_email" required>
     </div>
-    <div class="form-group">
+    <div class="login_password">
       <label for="">Password</label>
       <input type="password" class="form-control" required>
     </div>
-  <form method="get" action="...">
-    <button href type="button">Login</button>
-  </form>
-  <form method="get" action="creat_user.php">
-    <button type="button">Create User</button>
-  </form>
+
+   <a href="..." class="btn">Login</a>
+   <a href="creat_user.php" class="btn">Creat User</a>
 </div>
