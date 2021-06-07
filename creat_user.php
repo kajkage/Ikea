@@ -22,9 +22,9 @@ if(isset($_POST['creat_user'])) {
     $sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
     VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
     $result = mysqli_query($con, $sql);
-    if (mysqli_num_rows($result) > 0) {
-      echo "Bruger er oprettet";
-    }
+    //if (mysqli_num_rows($result) > 0) {
+      //echo "Bruger er oprettet";
+    //}
   }
 
 }
