@@ -5,15 +5,17 @@ $category_id = $_POST['category'];
 $title = $_POST['title'];
 $text = $_POST['text'];
 $time_end = $_POST['time_end'];
+$user_id = $_POST['user_id'];
 
-$sql = "INSERT INTO auction (category_id, title, `text`, time_end)
-VALUES ('$category_id', '$title', '$text', '$time_end');";
+$sql = "INSERT INTO auction (category_id, title, `text`, time_end, user_id)
+VALUES ('$category_id', '$title', '$text', '$time_end', '$user_id');";
 $result = mysqli_query($con, $sql);
 
 $min_price = $_POST['min_price'];
+$bid_price = $_POST['bid_price'];
 
-$sql = "INSERT INTO bids (min_price)
-VALUES ('$min_price');";
+$sql = "INSERT INTO bids (min_price, bid_price)
+VALUES ('$min_price', '$bid_price');";
 $result = mysqli_query($con, $sql);
 }
 ?>
@@ -50,11 +52,17 @@ $result = mysqli_query($con, $sql);
       <br>
       <input type="text" name="min_price" placeholder="Mindste pris" required>
       <br>
+      <input type="text" name="bid_price" placeholder="Mindste pris" required>
+      <br>
       <lable for="time_end">Slut tidspunkt</lable>
       <br>
       <input type="datetime-local" name="time_end" placeholder="Slut tidspunkt" required>
       <br>
+      <input type="text" name="user_id" placeholder="Bruger ID" required>
+      <br>
       <button name="creat_auction" type="sumbit" value="create"> Opret Auction </button>
+
+
 
     </form>
   </body>
