@@ -14,6 +14,8 @@ include('./header.php');
 
 if(isset($_GET["p"])) {
   $page = getPage($_GET["p"]);
+} elseif (isset($_GET["c"])) {
+  $page = getCatPage($_GET["c"]);
 } else {
   $page = getPage();
 }

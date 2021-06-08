@@ -50,7 +50,7 @@ function getPage($pid = null) {
 function getNav() {
   global $con;
 
-  $sql = 'SELECT page_id, pagename FROM pages WHERE page_id = 5 OR page_id = 3 OR page_id = 4';
+  $sql = 'SELECT page_id, pagename FROM pages WHERE page_id = 1 OR page_id = 3 OR page_id = 5 OR page_id = 4';
   $result = mysqli_query($con, $sql);
   $nav = [];
 
@@ -72,6 +72,20 @@ function getCat($pid = null) {
 
   if($pid != null) {
     $sql = 'SELECT * FROM pages WHERE id = 6';
+  }
+
+  $page = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($page) > 0) {
+    return mysqli_fetch_assoc($page);
+  }
+  return false;
+}
+function getCatPage($pid = null) {
+  global $con;
+
+  if($pid != null) {
+    $sql = 'SELECT * FROM pages WHERE page_id = 6';
   }
 
   $page = mysqli_query($con, $sql);
