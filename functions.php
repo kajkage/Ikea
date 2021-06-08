@@ -50,8 +50,8 @@ function getPage($pid = null) {
 function getNav() {
   global $con;
 
-  $sql = 'SELECT page_id, title FROM pages WHERE id IN (2, 3, 4)';
-  $reult = mysqli_query($con, $sql);
+  $sql = 'SELECT page_id, pagename FROM pages WHERE page_id = 2 OR page_id = 3 OR page_id = 4';
+  $result = mysqli_query($con, $sql);
   $nav = [];
 
   if(mysqli_num_rows($result) > 0){
