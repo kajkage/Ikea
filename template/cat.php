@@ -3,14 +3,11 @@
 global $conn;
 
 $pid = $_GET["c"];
-$sql = "SELECT * FROM auction where category_id = '$pid'";
+$sql = "SELECT * FROM auctionuser where category_id = '$pid'";
 
 $result = mysqli_query($con, $sql);
-$auc = [];
-if(mysqli_num_rows($result) > 0) {
-  while($row = mysqli_fetch_assoc($result)) {
-    $auc[] = $row;
-  }
-}
 
-echo "Titel: " . $auc[0]['title'] . "<br> Tekst: " . $auc[0]['text'];
+ while($auc = mysqli_fetch_array($result)) { ?>
+   <a href="?profile=<?php echo $auc['user_id']; ?>"><?php
+  echo "Lagt op af: " . $auc['first_name'] . " " . $auc['last_name'] .  "</a><br> Titel: " . $auc['title'] . "<br> Tekst: " . $auc['text'] . "<br> Pris: " . $auc['bid_price'] . "<br>";
+}
