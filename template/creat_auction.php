@@ -10,7 +10,6 @@ $sql = "INSERT INTO auction (category_id, title, `text`, time_end)
 VALUES ('$category_id', '$title', '$text_to_page', '$time_end');";
 $result = mysqli_query($con, $sql);
 
-
 $min_price = $_POST['min_price'];
 
 $sql = "INSERT INTO bids (min_price)
@@ -28,7 +27,17 @@ $result = mysqli_query($con, $sql);
   </head>
   <body>
     <form method="post">
-      <input type="text" name="category_id" placeholder="Kategori" required>
+      <select>
+        <option>Kategori</option>
+        <?php
+        $sql = "SELECT * FROM categories";
+         $result = mysqli_query($con, $sql);
+         while ($row = mysqli_fetch_array($result)) {
+           echo '<option>' .$row ['cat_name']. '</option>';
+         }
+
+         ?>
+       </select>
       <br>
       <input type="text" name="title" placeholder="Overskrift" required>
       <br>
