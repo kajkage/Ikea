@@ -47,6 +47,12 @@ function getPage($pid = null) {
   return false;
 }
 
+function getNav() {
+  global $con;
+
+  $sql = 'SELECT page_id, title FROM pages '
+}
+
 function debug($data) {
   echo '<pre>';
   print_r($data);
