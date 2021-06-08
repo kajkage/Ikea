@@ -50,7 +50,16 @@ function getPage($pid = null) {
 function getNav() {
   global $con;
 
-  $sql = 'SELECT page_id, title FROM pages '
+  $sql = 'SELECT page_id, title FROM pages WHERE id IN (2, 3, 4)';
+  $reult = mysqli_query($con, $sql);
+  $nav = [];
+
+  if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)) {
+      $nav[] = $row;
+    }
+  }
+  return $nav;
 }
 
 function debug($data) {
@@ -71,3 +80,4 @@ function getCat($pid = null) {
     return mysqli_fetch_assoc($page);
   }
   return false;
+}
