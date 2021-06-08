@@ -2,7 +2,7 @@
 
 global $conn;
 
-$pid = $_GET["c"];
+$pid = $_GET["auc"];
 $sql = "SELECT * FROM auctionuser where category_id = '$pid'";
 
 $result = mysqli_query($con, $sql);
