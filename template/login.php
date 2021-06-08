@@ -20,7 +20,7 @@ if(isset($_POST['login'])) {
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$sql = "SELECT email, password FROM users";
+$sql = "SELECT user_id, email, password FROM users";
 global $con;
 $result = mysqli_query($con, $sql);
 $users = [];
@@ -32,6 +32,7 @@ if(mysqli_num_rows($result) > 0) {
 for ($x = 0; $x < count($users); $x++){
   if($users[$x]['email'] == $email && $users[$x]['password'] == $password){
   $_SESSION['user_first_name'] = $email;
+  $_SESSION['user_id'] = $users[$x]['user_id'];
   header("Location: ./index.php?p=3");
 
   break;
