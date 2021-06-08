@@ -6,24 +6,13 @@ $category_id = $_POST['category'];
 $title = $_POST['title'];
 $text = $_POST['text'];
 $time_end = $_POST['time_end'];
-
-
 $min_price = $_POST['min_price'];
-$bid_price = $_POST['bid_price'];
 
-$sql = "INSERT INTO bids (min_price, bid_price)
-VALUES ('$min_price', '$bid_price');";
+
+$sql = "INSERT INTO auction (category_id, title, `text`, min_price, time_end, user_id)
+VALUES ('$category_id', '$title', '$text', '$min_price', '$time_end', '$user_id');";
 $result = mysqli_query($con, $sql);
-
-if (mysqli_query($con, $sql)){
-  $last_id = mysqli_insert_id($con);
-}
-
-$sql = "INSERT INTO auction (category_id, title, `text`, time_end, user_id, bid_id)
-VALUES ('$category_id', '$title', '$text', '$time_end', '$user_id', '$last_id');";
-$result = mysqli_query($con, $sql);
-
-
+echo $con -> error;
 }
 ?>
 
@@ -58,8 +47,6 @@ $result = mysqli_query($con, $sql);
       <input type="text" name="text" placeholder="Produkt Info" required>
       <br>
       <input type="text" name="min_price" placeholder="Mindste pris" required>
-      <br>
-      <input type="text" name="bid_price" placeholder="Mindste pris" required>
       <br>
       <lable for="time_end">Slut tidspunkt</lable>
       <br>
