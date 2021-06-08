@@ -43,7 +43,9 @@ $result = mysqli_query($con, $sql);
       <br>
       <input type="text" name="text" placeholder="Produkt Info" required>
       <br>
-      <input type="date" name="time_end" placeholder="Slut tidspunkt" required>
+      <lable for="time_end">Slut tidspunkt</lable>
+      <br>
+      <input type="datetime-local" name="time_end" placeholder="Slut tidspunkt" required>
       <br>
       <button name="creat_auction" type="sumbit" value="create"> Opret Auction </button>
 
