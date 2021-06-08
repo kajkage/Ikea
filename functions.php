@@ -47,8 +47,27 @@ function getPage($pid = null) {
   return false;
 }
 
+function getNav() {
+  global $con;
+
+  $sql = 'SELECT page_id, title FROM pages '
+}
+
 function debug($data) {
   echo '<pre>';
   print_r($data);
   echo '</pre>';
 }
+function getCat($pid = null) {
+  global $con;
+
+  if($pid != null) {
+    $sql = 'SELECT * FROM pages WHERE id = 6';
+  }
+
+  $page = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($page) > 0) {
+    return mysqli_fetch_assoc($page);
+  }
+  return false;
