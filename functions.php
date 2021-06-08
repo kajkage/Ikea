@@ -95,3 +95,17 @@ function getCatPage($pid = null) {
   }
   return false;
 }
+function getProfilePage($pid = null) {
+  global $con;
+
+  if($pid != null) {
+    $sql = 'SELECT * FROM pages WHERE page_id = 4';
+  }
+
+  $page = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($page) > 0) {
+    return mysqli_fetch_assoc($page);
+  }
+  return false;
+}
