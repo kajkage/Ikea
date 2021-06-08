@@ -7,9 +7,6 @@ $title = $_POST['title'];
 $text = $_POST['text'];
 $time_end = $_POST['time_end'];
 
-$sql = "INSERT INTO auction (category_id, title, `text`, time_end, user_id)
-VALUES ('$category_id', '$title', '$text', '$time_end', '$user_id');";
-$result = mysqli_query($con, $sql);
 
 $min_price = $_POST['min_price'];
 $bid_price = $_POST['bid_price'];
@@ -17,6 +14,16 @@ $bid_price = $_POST['bid_price'];
 $sql = "INSERT INTO bids (min_price, bid_price)
 VALUES ('$min_price', '$bid_price');";
 $result = mysqli_query($con, $sql);
+
+if (mysqli_query($con, $sql)){
+  $last_id = mysqli_insert_id($con);
+}
+
+$sql = "INSERT INTO auction (category_id, title, `text`, time_end, user_id, bid_id)
+VALUES ('$category_id', '$title', '$text', '$time_end', '$user_id', '$last_id');";
+$result = mysqli_query($con, $sql);
+
+
 }
 ?>
 
