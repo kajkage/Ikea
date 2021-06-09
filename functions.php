@@ -109,3 +109,18 @@ function getProfilePage($pid = null) {
   }
   return false;
 }
+
+function getAucPage($pid = null) {
+  global $con;
+
+  if($pid != null) {
+    $sql = 'SELECT * FROM pages WHERE page_id = 8';
+  }
+
+  $page = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($page) > 0) {
+    return mysqli_fetch_assoc($page);
+  }
+  return false;
+}

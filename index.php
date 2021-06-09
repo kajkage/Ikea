@@ -14,10 +14,12 @@ include('./header.php');
 
 if(isset($_GET["p"])) {
   $page = getPage($_GET["p"]);
-} elseif (isset($_GET["auc"])) {
-  $page = getCatPage($_GET["auc"]);
+} elseif (isset($_GET["cat"])) {
+  $page = getCatPage($_GET["cat"]);
 } elseif (isset($_GET["profile"])) {
   $page = getProfilePage($_GET["profile"]);
+} elseif (isset($_GET["auc"])) {
+  $page = getAucPage($_GET["auc"]);
 }
  else {
   $page = getPage();
