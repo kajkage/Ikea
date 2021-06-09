@@ -19,9 +19,7 @@ if(isset($_POST['creat_user'])) {
     $sql = "INSERT INTO users (first_name, last_name, adress, postal, phone_number, email, password)
     VALUES ('$first_name', '$last_name', '$adress', '$postal', '$phone_number', '$email', '$password');";
     $result = mysqli_query($con, $sql);
-    //if (mysqli_num_rows($result) > 0) {
-      //echo "Bruger er oprettet";
-    //}
+
     header('Location: ./index.php');
   }
 
@@ -35,24 +33,23 @@ if(isset($_POST['creat_user'])) {
     <title>Ny bruger</title>
   </head>
   <body>
-<form method="post">
-<input type="text" name="first_name" placeholder="Fornavn" required>
-<br>
-<input type="text" name="last_name" placeholder="Efternavn" required>
-<br>
-<input type="email" name="email" placeholder="Email" required>
-<br>
-<input type="text" name="phone_number" placeholder="Nummer" required>
-<br>
-<input type="text" name="adress" placeholder="Adresse" required>
-<br>
-<input type="text" name="postal" placeholder="Postnummer" required>
-<br>
-<input type="password" name="password" placeholder="Adgangskode" required>
-<button name="creat_user" type="sumbit" value="create"> opret bruger </button>
+      <form method="post">
+      <input type="text" name="first_name" placeholder="Fornavn" required>
+      <br>
+      <input type="text" name="last_name" placeholder="Efternavn" required>
+      <br>
+      <input type="email" name="email" placeholder="Email" required>
+      <br>
+      <input type="text" name="phone_number" placeholder="Nummer" required>
+      <br>
+      <input type="text" name="adress" placeholder="Adresse" required>
+      <br>
+      <input type="text" name="postal" placeholder="Postnummer" required>
+      <br>
+      <input type="password" name="password" placeholder="Adgangskode" required>
+      <button name="creat_user" type="sumbit" value="create"> opret bruger </button>
 
-
-</form>
+      </form>
 
   </body>
 </html>
