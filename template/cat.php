@@ -3,6 +3,12 @@
 global $con;
 
 $pid = $_GET["cat"];
+
+$sql = "SELECT cat_name FROM categories WHERE category_id = '$pid'";
+$result = mysqli_query($con, $sql);
+$catname = mysqli_fetch_array($result);
+?><h1 class="catname"><?php echo $catname['cat_name']; ?></h1><br><?php
+
 $sql = "SELECT * FROM actionusernobids where category_id = '$pid' AND time_end > NOW()";
 $result = mysqli_query($con, $sql);
 

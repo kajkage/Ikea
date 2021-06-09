@@ -24,7 +24,7 @@ $min_price_time_end = mysqli_fetch_array($result);
 
 if($newbid < $min_price_time_end[0]) {
   echo "<br>Dit bud er mindre end mindste prisen";
-} if ($min_price_time_end[1] > date("Y-m-d H:i:s")) {
+} if ($min_price_time_end[1] < date("Y-m-d H:i:s")) {
   echo "<br>Denne auktion er ikke længere åben";
 } else
 
