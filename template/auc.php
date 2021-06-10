@@ -11,6 +11,7 @@ $result = mysqli_query($con, $sql);
    <a href="?profile=<?php echo $auc['user_id']; ?>"><?php
   echo "Lagt op af: " . $auc['first_name'] . " " . $auc['last_name'] . "</a><br>Titel: " . $auc['title'] . "<br>Text: " . $auc['text'] . "<br>Auktion slutter d. " . $auc['time_end'] . "<br>Mindste pris: " . $auc['min_price'];
   $_SESSION['auction_id'] = $auc['auction_id'];
+  $_SESSION['auc_user_id'] = $auc['user_id'];
  }
 
  $sql = "SELECT MAX(bid_price) AS highest_bid from auctionwithbids where auction_id = '$pid'";
@@ -47,10 +48,14 @@ echo $con -> error;
 
 }
 
-
-
+if(empty($_SESSION['logged_in'])) {
+  echo "<br>Du skal være logget ind for at kunne byde";
+} elseif($_SESSION['user_id'] == $_SESSION['auc_user_id']) {
+echo "<br>Du kan ikke byde på din egen auktion";
+} else {
 ?>
 <form class="bids" method="post">
   <input type="number" name="newbid">
   <button name="submitbid">Byd</button>
 </form>
+<?php } ?>

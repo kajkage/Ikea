@@ -2,4 +2,4 @@
 <?php
 session_destroy();
 
-echo "<h1>You have been logged out</h1>";
+echo "<h1>Du er nu blevet logget ud</h1>";
