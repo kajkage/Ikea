@@ -32,6 +32,7 @@ if(mysqli_num_rows($result) > 0) {
 for ($x = 0; $x < count($users); $x++){
   if($users[$x]['email'] == $email && $users[$x]['password'] == $password){
 
+  $_SESSION['logged_in'] = true;
   $_SESSION['user_id'] = $users[$x]['user_id'];
   $_SESSION['user_first_name'] = $users[$x]['first_name'];
   $_SESSION['user_last_name'] = $users[$x]['last_name'];

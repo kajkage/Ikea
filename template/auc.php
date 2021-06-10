@@ -13,18 +13,30 @@ $result = mysqli_query($con, $sql);
   $_SESSION['auction_id'] = $auc['auction_id'];
  }
 
+ $sql = "SELECT MAX(bid_price) AS highest_bid from auctionwithbids where auction_id = '$pid'";
+ ?>
+ <div class="highest_bid">
+ <br><a>Højeste bud: </a><br>
+ <?php
+ $result = mysqli_query($con, $sql);
+ while($highestbid = mysqli_fetch_array($result)) {
+   echo $highestbid['highest_bid'];
+   $_SESSION['highest_bid'] = $highestbid['highest_bid'];
+
+ }
 if(isset($_POST['submitbid'])) {
   $user_id = $_SESSION['user_id'];
   $newbid = $_POST['newbid'];
   $aucid = $_SESSION['auction_id'];
+  $largestbid = $_SESSION['highest_bid'];
 
 $sql = "SELECT min_price, time_end FROM auction where auction_id = '$aucid'";
 $result = mysqli_query($con, $sql);
 $min_price_time_end = mysqli_fetch_array($result);
 
-if($newbid < $min_price_time_end[0]) {
+if($newbid < $min_price_time_end[0] || $newbid < $largestbid) {
   echo "<br>Dit bud er mindre end mindste prisen";
-} if ($min_price_time_end[1] < date("Y-m-d H:i:s")) {
+} elseif ($min_price_time_end[1] < date("Y-m-d H:i:s")) {
   echo "<br>Denne auktion er ikke længere åben";
 } else
 

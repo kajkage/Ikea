@@ -6,13 +6,29 @@
   </head>
   <body>
     <?php foreach(getNav() as $navpage) {
-      if($navpage['page_id'] == 4) { ?>
+      if($navpage['page_id'] == 4 && ! empty($_SESSION['logged_in'])) { ?>
         <li>
         <a href="?profile=<?php echo $_SESSION['user_id']; ?>">
           <?php echo $navpage['pagename'];
-      } else { ?>
-      <a href="?p=<?php echo $navpage['page_id']; ?>">
+      }
+      if ($navpage['page_id'] == 9 && ! empty($_SESSION['logged_in'])) { ?>
+        <li>
+        <a href="?p=<?php echo $navpage['page_id']; ?>">
+          <?php echo $navpage['pagename'] . "</a><br>";
+      }
+    if ($navpage['page_id'] == 1) { ?>
+      <li><a href="?p=<?php echo $navpage['page_id']; ?>">
         <?php echo $navpage['pagename']; ?>
-      </a>
-    </li>
-  <?php } } ?>
+      </a> <?php
+    }
+    if ($navpage['page_id'] == 3) { ?>
+      <li><a href="?p=<?php echo $navpage['page_id']; ?>">
+        <?php echo $navpage['pagename']; ?>
+      </a> <?php
+    }
+    if ($navpage['page_id'] == 5) { ?>
+      <li><a href="?p=<?php echo $navpage['page_id']; ?>">
+        <?php echo $navpage['pagename'] . "<br>"; ?>
+      </a> <?php
+    }
+  }

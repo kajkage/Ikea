@@ -11,7 +11,7 @@ while($profile = mysqli_fetch_array($result)) {
 }
 echo "<br><br>Dine aktive auktioner:<br>";
 
-$sql = "SELECT * FROM auctionowner where user_id = '$pid' AND time_end > NOW()";
+$sql = "SELECT * FROM actionusernobids where user_id = '$pid' AND time_end > NOW()";
 
 $result = mysqli_query($con, $sql);
 while($aucowner = mysqli_fetch_array($result)) {
@@ -19,7 +19,7 @@ while($aucowner = mysqli_fetch_array($result)) {
 }
 echo "<br><br>Dine tidligere auktioner:<br>";
 
-$sql = "SELECT * FROM auctionowner where user_id = '$pid' AND time_end < NOW()";
+$sql = "SELECT * FROM actionusernobids where user_id = '$pid' AND time_end < NOW()";
 
 $result = mysqli_query($con, $sql);
 while($aucowner = mysqli_fetch_array($result)) {

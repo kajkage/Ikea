@@ -50,7 +50,7 @@ function getPage($pid = null) {
 function getNav() {
   global $con;
 
-  $sql = 'SELECT page_id, pagename FROM pages WHERE page_id = 1 OR page_id = 3 OR page_id = 5 OR page_id = 4';
+  $sql = 'SELECT page_id, pagename FROM pages WHERE page_id = 1 OR page_id = 3 OR page_id = 5 OR page_id = 4 OR page_id = 9';
   $result = mysqli_query($con, $sql);
   $nav = [];
 

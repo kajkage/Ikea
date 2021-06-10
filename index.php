@@ -20,8 +20,7 @@ if(isset($_GET["p"])) {
   $page = getProfilePage($_GET["profile"]);
 } elseif (isset($_GET["auc"])) {
   $page = getAucPage($_GET["auc"]);
-}
- else {
+} else {
   $page = getPage();
 }
 
