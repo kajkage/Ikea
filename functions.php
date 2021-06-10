@@ -111,3 +111,14 @@ function getAucPage($pid = null) {
   }
   return false;
 }
+function getLargestbid($aucid) {
+  global $con;
+
+  $sql = "SELECT MAX(bid_price) FROM winnindbids WHERE auction_id = $aucid";
+  $result = mysqli_query($con, $sql);
+
+  if(mysqli_num_rows($result) > 0) {
+    return mysqli_fetch_assoc($result);
+}
+return false;
+}
