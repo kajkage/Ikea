@@ -9,7 +9,7 @@ if(isset($_GET["profile"])) {
   while($profile = mysqli_fetch_array($result)) {
     echo "Navn: " . $profile['first_name'] . " " . $profile['last_name'] . "<br>E-mail: " . $profile['email'] . "<br>Telefon: " . $profile['phone_number'];
   }
-  echo "<br><br>Dine aktive auktioner:<br>";
+  echo "<br><br>Aktive auktioner:<br>";
 
   $sql = "SELECT * FROM actionusernobids where user_id = '$pid' AND time_end > NOW()";
 
@@ -17,27 +17,26 @@ if(isset($_GET["profile"])) {
   while($aucowner = mysqli_fetch_array($result)) {
     echo "<br> Kategori: " . $aucowner['cat_name'] . "<br> Titel: " . $aucowner['title'] . "<br> Auktionen udløber d. " . $aucowner['time_end'] . "<br>" ?> <a href="?auc=<?php echo $aucowner['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
   }
-  echo "<br><br>Dine tidligere auktioner:<br>";
+  echo "<br><br>Tidligere auktioner:<br>";
 
   $sql = "SELECT * FROM actionusernobids where user_id = '$pid' AND time_end < NOW()";
 
   $result = mysqli_query($con, $sql);
   while($aucowner = mysqli_fetch_array($result)) {
-    echo "<br> Kategori: " . $aucowner['cat_name'] . "<br> Titel: " . $aucowner['title'] . "<br> Auktionen udløber d. " . $aucowner['time_end'] . "<br>" ?> <a href="?auc=<?php echo $aucowner['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
+    echo "<br> Kategori: " . $aucowner['cat_name'] . "<br> Titel: " . $aucowner['title'] . "<br> Auktionen udløb d. " . $aucowner['time_end'] . "<br>" ?> <a href="?auc=<?php echo $aucowner['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
   }
-  echo "<br><br>Vundede auktion";
+  echo "<br><br>Vundede auktion<br><br>";
 
-  $sql = "SELECT auction_id, cat_name, time_end, user_id, first_name, last_name, title, `text`, bid_price FROM winnindbids WHERE user_id = '$pid' AND auction_id = 4 ORDER BY bid_price DESC LIMIT 1";
-  $result = mysqli_query($con, $sql);
-
-  while($aucwinner = mysqli_fetch_array($result)) {
-
-    $sql = "SELECT bid_price FROM bids WHERE auction_id = 4 ORDER BY bid_price DESC LIMIT 1";
+    //$sql = "SELECT bid_price FROM largestbids where bid_user_id = '$pid'";
+    $sql = "SELECT * FROM userbids where user_id = '$pid' AND time_end < NOW()";
     $result = mysqli_query($con, $sql);
-    $largestbid = mysqli_fetch_array($result);
+    while($userlargestbid = mysqli_fetch_array($result)) {
+      if($userlargestbid['bid_price'] == getLargestbid($userlargestbid['auction_id'])) {
+        echo "<br> Kategori: " . $userlargestbid['cat_name'] . "<br> Titel: " . $userlargestbid['title'] . "<br> Auktionen udløb d. " . $userlargestbid['time_end'] . "<br>Vindende bud: " . $userlargestbid['bid_price'] . "<br>Winner: " . $userlargestbid['first_name'] . " " .  $userlargestbid['last_name']; ?> <a href="?auc=<?php echo $userlargestbid['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
 
-    if($aucwinner['time_end'] < date("Y-m-d H:i:s") && $aucwinner['bid_price'] >= $largestbid[0] && $aucwinner['user_id'] == $pid) {
-    echo "<br> Kategori: " . $aucwinner['cat_name'] . "<br> Titel: " . $aucwinner['title'] . "<br>Pris: " . $aucwinner['bid_price'] . "<br> Auktionen udløb d. " . $aucwinner['time_end'] . "<br>";
+    } else {
+      echo " ";
+    }
+
+    }
   }
-  }
-}

@@ -114,11 +114,11 @@ function getAucPage($pid = null) {
 function getLargestbid($aucid) {
   global $con;
 
-  $sql = "SELECT MAX(bid_price) FROM winnindbids WHERE auction_id = $aucid";
+  $sql = "SELECT bid_price FROM largestbids where auction_id = '$aucid'";
   $result = mysqli_query($con, $sql);
 
   if(mysqli_num_rows($result) > 0) {
-    return mysqli_fetch_assoc($result);
+    $largestbid = mysqli_fetch_array($result);
+    return $largestbid[0];
 }
-return false;
 }
