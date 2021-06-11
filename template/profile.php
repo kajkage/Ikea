@@ -32,7 +32,7 @@ if(isset($_GET["profile"])) {
     $result = mysqli_query($con, $sql);
     while($userlargestbid = mysqli_fetch_array($result)) {
       if($userlargestbid['bid_price'] == getLargestbid($userlargestbid['auction_id'])) {
-        echo "<br> Kategori: " . $userlargestbid['cat_name'] . "<br> Titel: " . $userlargestbid['title'] . "<br> Auktionen udløb d. " . $userlargestbid['time_end'] . "<br>Vindende bud: " . $userlargestbid['bid_price'] . "<br>Winner: " . $userlargestbid['first_name'] . " " .  $userlargestbid['last_name']; ?> <a href="?auc=<?php echo $userlargestbid['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
+        echo "<br> Kategori: " . $userlargestbid['cat_name'] . "<br> Titel: " . $userlargestbid['title'] . "<br> Auktionen udløb d. " . $userlargestbid['time_end'] . "<br>Vindende bud: " . $userlargestbid['bid_price'] . "<br>Vinder: " . $userlargestbid['first_name'] . " " .  $userlargestbid['last_name']; ?> <a href="?auc=<?php echo $userlargestbid['auction_id']; ?>"> <?php echo "Gå til auktion</a><br><br>";
 
     } else {
       echo " ";
