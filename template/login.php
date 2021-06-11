@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/login.css"
+<link rel="stylesheet" href="css/login.css">
 <div class="container">
   <form method="post">
     <h1>Log ind</h1>

@@ -1,4 +1,4 @@
-
+<link rel="stylesheet" href="css/styles.css">
 <div class="container">
 <?php
 $sql= "SELECT category_id, cat_name FROM categories";

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  text-align: center;
+}
+
+#cat {
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.auconcat {
+  font-size: 15px;
+  border: 1px solid black;
+  width: 25%;
+  margin: auto;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+}

@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/styles.css">
+<div class="auconcat">
 <?php
 
 global $con;
@@ -16,3 +18,4 @@ $result = mysqli_query($con, $sql);
    <a href="?profile=<?php echo $auc['user_id']; ?>"><?php
   echo "Lagt op af: " . $auc['first_name'] . " " . $auc['last_name'] .  "</a><br> Titel: " . $auc['title'] . "<br> Tekst: " . $auc['text'] . "<br> Pris: " . $auc['min_price'] . "<br>" ?> <a href="?auc=<?php echo $auc['auction_id']; ?>"> <?php echo "Byd på dette produkt</a><br><br>";
 }
+?></div><?php
