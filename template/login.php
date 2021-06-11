@@ -1,15 +1,18 @@
+<link rel="stylesheet" href="css/login.css"
 <div class="container">
   <form method="post">
     <h1>Log ind</h1>
     <div class="login">
       <label for="email">E-mail</label>
-      <input type="email" name="email" placeholder="Indtast email her" class="login_email" required>
+      <input type="email" name="email" placeholder="Indtast email her" class="login_email" id="mail" required>
+      <br> <br>
       <label for="password">Adgangkode</label>
-      <input type="password" name="password" placeholder="Tast kode her" class="login_password" required>
+      <input type="password" name="password" placeholder="Tast kode her" class="login_password" id="pass"required>
+      <br> <br>
+      <button type="submit" name="login" value="login" id="log">Log ind</button> <br>
+      <br>
+      <a href="?p=2" class="btn">Opret Bruger</a>
     </div>
-
-   <button type="submit" name="login" value="login">Log ind</button> <br>
-   <a href="?p=2" class="btn">Opret Bruger</a>
  </form>
 </div>
 

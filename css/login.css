@@ -1,0 +1,52 @@
+
+.login{
+        width: 350px;
+        overflow: hidden;
+        margin: auto;
+        margin: 20 0 0 450px;
+        padding: 80px;
+        background: #1659BC;
+        border-radius: 15px ;
+        text-align: center
+
+}
+
+h1{
+    text-align: center;
+    color: #277582;
+    padding: 20px;
+}
+label{
+    color: #10ffd1;
+    font-size: 17px;
+    text-align: center;
+}
+#mail{
+    width: 250px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+}
+#pass{
+    width: 200px;
+    height: 30px;
+    border: none;
+    border-radius: 3px;
+    padding-left: 8px;
+
+}
+#log{
+    width: 300px;
+    height: 30px;
+    border: none;
+    border-radius: 17px;
+    padding-left: 7px;
+    color: blue;
+}
+
+a{
+    float: left;
+    color: #10ffd1;
+    text-decoration: none;
+}
