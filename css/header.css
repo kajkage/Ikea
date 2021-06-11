@@ -1,0 +1,37 @@
+.navbar {
+  overflow: hidden;
+  background-color: yellow;
+  text-align: left;
+  border-radius: 10px;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+.navbar a.right {
+  float: right;
+}
+
+.navbar a {
+  background-color: #1659BC;
+  color: black;
+
+}
+
+.navbar a:hover {
+  color: deeppink;
+}
+
+li {
+    list-style-type: none;
+}
+
+.logo {
+  float: left;
+}
